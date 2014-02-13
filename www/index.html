@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <link rel="stylesheet" href="themes/sample.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.css" />
+        
+        <link rel="stylesheet" type="text/css" href="css/inline.css" />
+        <link rel="stylesheet" type="text/css" href="css/activity.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        
+    </head>
+    <style>
+        #appwallLoginPage-popup{
+            width: 100%;
+        }
+        #appwallLoginPage1-popup{
+            width: 100%;
+        }
+        </style>
+    <body>
+        <div data-role="page" id="login" data-theme="a">
+            <div data-role="content"  style="margin-top:20%">
+                <!-- <form  action="javascript:generalsearchgo();" method="post" id="GenaralSearch">
+                 
+                 <table border="0" cellspacing="5" width="100%">
+                 
+                 <tr>
+                 <td style="text-align:left">
+                 <label>APPKEY</label>
+                 </td>
+                 <td style="text-align:right" >
+                 <input type="text" id="appkey" name="appkey" value="1d9a209c7c23847f32e3d35ebf8f6af6" placeholder= "APPKEY">
+                 </td>
+                 </tr>
+                 
+                 
+                 </table>
+                 <input type="submit" id="submit" value="Submit"/>
+                 </form>-->
+            </div>
+        </div>
+        
+        <div data-role="page" id="icons" data-theme="a">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; height:auto; z-index:9999">
+                <a href="#mypanel" class="ui-btn-left">
+                    <img src="img/btn_menu.png">
+                        </a>
+                <h4><span id ="title"> </span></h4>
+                <div class="ui-btn-right" id="info">
+                    <img src="img/btn_info.png">
+                        </div>
+                
+            </div>
+            
+            <div data-role="content"  style="margin-top:20%">
+                <div class="ui-grid-a" id="linksList1">
+                </div>
+            </div>
+            <div data-role="panel" style="background-color:#e9e9e9" id="mypanel" data-position-fixed="false" data-display="overlay">
+                
+                <br>
+                <br>
+                <ul data-role="listview">
+                    <li id="log" data-icon="false"><a href="#" style="margin-top:5%"><img src="img/ico_user.png"class="ui-li-icon">Login/Register</a></li>
+                    <li id="logout" data-icon="false"><a href="#" style="margin-top:5%"><img src="img/ico_logout.png"class="ui-li-icon">LogOut</a></li>
+                    
+                    <li id="notify" data-icon="false"><a href="#" data-transition="slide" style="margin-top:6%"><img src="img/ico_bell.png"class="ui-li-icon">Notification<span id="count" class="ui-li-count" style="background-color:#51C4D4; text-shadow:none;"></span></a></li>
+                    <li id="apwal" data-icon="false"><a href="#"><img src="img/ico_chat.png"class="ui-li-icon">App Wall</a></li>
+                    <!-- <li id="subscribe" data-icon="false"><a href="#"><img src="img/ico_suscribe.png"class="ui-li-icon">Subscribe</a></a></li> -->
+                    
+                    
+                </ul>
+                <br>
+                <br>
+                <br>
+                <ul data-role="listview" id="linksList">
+                </ul>
+                
+                
+            </div><!-- /panel -->
+            
+            <div data-role="popup" id="appwallLoginPage1" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%; margin-top:18%">
+                <div data-role="header" class="hd" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3 id="log1title"></h3>
+                </div>
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                
+                
+                <div data-role="content">
+                    <h3 align="center" style="color:white">LOGIN</h3>
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:50%;">
+                            <a data-role="button" id="" data-mini="true" onclick="fblogin1();" style="text-shadow:none;"><img src="img/fb.png" style="width:10px; height:10px"/>  FACEBOOK</a>
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:50%;">
+                            <a data-role="button" data-mini="true"  id="" onclick="twitter1();" style="text-shadow:none;"><img src="img/twitter.png" style="width:10px; height:10px" />  TWITTER</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <input type = "text" name = "login" id="appwallLogin1" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password" name = "password" id="appwallPassword1" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <a data-role="button" id="appwallloginbtn1" onclick="javascript:appwallLoginFun1();" style="text-shadow:none;">LOGIN</a>
+                    
+                    <img src="img/register.png" width="100%"/>
+                    
+                    <a data-role="button" id="appwallregisterbtn" onclick="javascript:appwallRegFun1();" style="text-shadow:none;">REGISTER</a>
+                    
+                </div>
+            </div>
+            
+            <div data-role="popup" id="appwallRegPage1" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%; margin-top:18%">
+                <div data-role="header" class="hd" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3 id="reg1title"></h3>
+                </div>
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                
+                
+                <div data-role="content">
+                    <h3 align="center" style="color:white">REGISTER</h3>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:45%; margin-right:5%;">
+                            <input type = "text" name = "login" id="appwallRegFnam1" style="text-shadow:none;" placeholder="First Name" />
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:45%; margin-left:5%;">
+                            <input type = "text" name = "login" id="appwallRegLnam1" style="text-shadow:none;" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    
+                    <input type = "text" name = "login" id="appwallRegid1" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password" name = "password" id="appwallRegPassword1" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <input type = "number" name = "phone" id="appwallRegPhone1" style="text-shadow:none; background-image:url('img/txt_phone.png'); background-size: 100% 100%;" placeholder="Phone"/>
+                    
+                    <input type = "email" name = "email" id="appwallRegEmail1" style="text-shadow:none; background-image:url('img/txt_mail.png'); background-size: 100% 100%;" placeholder="Email"/>
+                    
+                    <a data-role="button" id="appwallregbtn1" onclick="reg1();" style="text-shadow:none;">REGISTER</a>
+                    
+                    
+                    
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>
+        
+        
+        
+        <div data-role="page" id="information" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:999">
+                <h4><span id="heading" ></span></h4>
+                <div id="back"><img src="img/btn_back.png" style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div data-role="content">
+                <div>
+                    <p style="text-align:justify; text-justify:inter-word;"><span id="description"></span><p>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+        
+        <div data-role="page" id="rss" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:2000">
+                <h4><span id="rssheading"></span></h4>
+                <div id="rssback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <h2 style="text-align:center;"><span id="rsstitle"></span></h2>
+            
+            <div id="rssstatus"></div>
+            <ul id="rsslistview" data-role="listview" data-inset="true" style="z-index:0"></ul>
+            
+            <div data-role="content">
+                
+            </div>
+        </div>
+        
+        
+        <div data-role="page" id="rsscontentPage" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:999">
+                <h4><span id="rsscontentPageheading"></span></h4>
+                <div id="rsscontentPageback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+            </div>
+            
+            <h2 id="rsscontentPageHeading1" style="text-align:center; margin-top:20%"></h2>
+            
+            <p id="rssentryText" style="text-align:justify; text-justify:inter-word;">
+            </p>
+            
+        </div>
+        
+        
+        <div data-role="page" id="video" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:1000">
+                <h4><span id="videoheading"></span></h4>
+                <div id="videoback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+                
+            </div>
+            <br>
+            <br>
+            
+            <h2 style="text-align:center;"><span id="videoTitle"></span></h2>
+            
+            <div data-role="content">
+                
+                <div><span id="videoText"></span></div>
+                
+                <div id="videoppt"></div>
+                
+                <div id="videoplayer"></div>
+            </div>
+        </div>
+        
+        
+        <div data-role="page" id="audio" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:1000">
+                <h4><span id="audioheading"></span></h4>
+                <div id="audioback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+                
+            </div>
+            <br>
+            <br>
+            
+            <h2 style="text-align:center;"><span id="audioTitle"></span></h2>
+            
+            <div data-role="content">
+                
+                <div><span id="audioText"></span></div>
+                
+                <div id="audioppt"></div>
+                
+                <div id="audioplayer"></div>
+            </div>
+        </div>
+        
+        
+        <div data-role="page" id="textcontent" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x; height: 100%;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:99">
+                
+                <div id="" onclick=" $.mobile.changePage( '#ElementAppwall',{transition: 'slide',reverse: true});" class="ui-btn-right">
+                    <img src="img/ico_chat.png">
+                        </div>
+                <h4><span id="textcontentheading"></span></h4>
+                <a id="textcontentback" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+            </div>
+            <br />
+            <br />
+            <div data-role="content" style="text-align:center;">
+                <h2><span id="textcontentTitle"></span></h2>
+                <p id="textcontentText" style="text-align:justify; text-justify:inter-word;"></p>
+                <b id="textcontentPrice"></b>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div id="contentPre" ></div>
+                        <!--<a data-role="button" data-inline="true" data-theme="" data-icon="arrow-l" id="textcontentpre">PREV</a>-->
+                    </div>
+                    <div class="ui-block-b">
+                        <div id="contentNext" ></div>
+                        <!--<a data-role="button" data-inline="true" data-theme="" data-icon="arrow-r" id="textcontentnext">NEXT</a>-->
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+        
+        <div data-role="page" id="text" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x; height: 100%;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:99">
+                <h4><span id="textheading"></span></h4>
+                <a id="textback" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+                
+            </div>
+            <div>
+                <br>
+                <br>
+                <div data-role="content" style="text-align:center;">
+                    <h2><span id="textTitle"></span></h2>
+                    
+                </div>
+                <ul id="textListview" data-role="listview" data-inset="true"></ul>
+            </div>
+        </div>
+        
+        
+        <div data-role="page" id="contact_form" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; height:auto; z-index:999">
+                <h4><span id="contactheading"></span></h4>
+                <div id="contactback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+                
+            </div>
+            <br>
+            <br>
+            
+            
+            
+            <h3 style="text-align:center;"><span id="contactTitle"></span></h3>
+            
+            <div data-role="content">
+                <div><input type="text" id="contactsubject" placeholder="Subject"></div>
+                <div><textarea style="resize:vertical; max-height:200px; min-height:200px; " type="text" id="contactbody" placeholder="message to suggest you" ></textarea></div>
+                <div align="right"><a data-role="button" data-inline="true" data-theme="" id="sendMail" >Send Mail</a></div>
+            </div>
+        </div>
+        
+        
+        
+        <div data-role="page" id="web_page" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:99">
+                <h4><span id="web_pageheading"></span></h4>
+                <div id="web_pageback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+            </div>
+            <div>
+                <br>
+                <br>
+                <div data-role="content" style="text-align:center;">
+                    <h2><span id="web_pageTitle"></span></h2>
+                    
+                </div>
+                <p id="web_pageText" style="text-align:justify; text-justify:inter-word;" ></p>
+                <fant color="blue"><a id="web_pageurl" href=""></a></font>
+                    </div>
+        </div>
+        
+        
+        
+        <div id="map" data-role="page" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:99">
+                <h4><span id="mapheading">map</span></h4>
+                <div id="mapback"><img src='img/btn_back.png' style="height: 35px; width: 55px; margin-right: 90%; margin-top: -55px; margin-bottom: 50px"/></div>
+            </div>
+            <div data-role="content">
+                
+                <div id="panel" style="margin-top:5%; margin-left:2%;">
+                    <div id="map-canvas" style="width:100%; height:300px; margin-top: 20%"></div><br />
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input id="mapaddress" type="text" value="" >
+                                </div>
+                        <div class="ui-block-b">
+                            <a data-role="button" data-inline="true" data-theme="" id="mapButton" style="height:35px">Location</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div data-role="page" id="subscriber" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:99">
+                <h4><span id="subscriberheading">Subscriber</span></h4>
+                <a id="subscriberback" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <div data-role="content" style="text-align:center;">
+                <select id="grp"></select>
+                <br>
+                <input type="text" id="uname" placeholder="User Name"/>
+                <br>
+                <input type="email" id="email" placeholder="Email"/>
+                <br>
+                <button id="newsubscriber">New Subscribe</button>
+            </div>
+            
+            
+        </div>
+        
+        
+        
+        <div data-role="page" id="notification" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:9999">
+                <!--  <a href="#" id="clearnote" class="ui-btn-right">Clear All</a> -->
+                <div id="clearnote" class="ui-btn-right">
+                    <img src="img/btn_clear.png">
+                        </div>
+                <h4><span id="notificationheading">Notification</span></h4>
+                <a id="notificationback" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+            </div>
+            <br>
+            <br>
+            
+            <ul data-role="listview" id="notes">
+            </ul>
+        </div>
+        
+        <div data-role="page" id="appwall" class="bg" data-theme="a" style="background-size:100% 100%; background-repeat:repeat-x;">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:9999">
+                <h4><span id="appwallheading">AppWall</span></h4>
+                <a id="appwallback" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+            </div>
+            <br>
+            <br>
+            <!-- <br>
+             <div> -->
+            <div data-role="content">
+                <div class="ui-grid-a" style="width:100%;" id="entercmt">
+                    <div class="ui-block-a" style="width:75%;">
+                        <input id="postmessage" type="text" data-mini="true" data-inline="true" placeholder="Enter Your Comments...." value="" >
+                            </div>
+                    <div class="ui-block-b" style="width:20%;">
+                        <button id="textPostMgs" class="textPostMgs" onclick="javascript:postmessageFun();" data-mini="true" data-inline="true"><font color="black" >Post</font></button>
+                    </div>
+                </div>
+                <div id="requestcmt">
+                    <button onclick="login();">Click here to comment</button>
+                </div>
+                <div id="appwallListview" align="center">
+                </div>
+            </div>
+            
+            
+            <div data-role="popup" id="appwallLoginPage" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%;">
+                <div data-role="header" class="hd" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3 id="logtitle"></h3>
+                </div>
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                
+                
+                <div data-role="content">
+                    <h3 align="center" style="color:white">LOGIN</h3>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:50%;">
+                            <a data-role="button" data-mini="true" id="" onclick="fblogin();" style="text-shadow:none;"><img src="img/fb.png" style="width:10px; height:10px"/>  FACEBOOK</a>
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:50%;">
+                            <a data-role="button" data-mini="true" onclick="twitter();" style="text-shadow:none;"><img src="img/twitter.png" style="width:10px; height:10px" />  TWITTER</a>
+                        </div>
+                    </div>
+                    
+                    <input type = "text" name = "login" id="appwallLogin" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password" name = "password" id="appwallPassword" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <a data-role="button" id="appwallloginbtn" onclick="javascript:appwallLoginFun();" style="text-shadow:none;">LOGIN</a>
+                    
+                    <img src="img/register.png" width="100%"/>
+                    
+                    
+                    <a data-role="button" id="appwallregisterbtn" onclick="javascript:appwallRegFun();" style="text-shadow:none;">REGISTER</a>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div data-role="popup" id="appwallRegPage" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%;">
+                <div data-role="header" class="hd" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3 id="regtitle"></h3>
+                </div>
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                
+                
+                <div data-role="content">
+                    <h3 align="center" style="color:white">REGISTER</h3>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:45%; margin-right:5%;">
+                            <input type = "text" name = "login" id="appwallRegFnam" style="text-shadow:none;" placeholder="First Name" />
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:45%; margin-left:5%;">
+                            <input type = "text" name = "login" id="appwallRegLnam" style="text-shadow:none;" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    
+                    <input type = "text" name = "login" id="appwallRegid" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password" name = "password" id="appwallRegPassword" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <input type = "number" name = "phone" id="appwallRegPhone" style="text-shadow:none; background-image:url('img/txt_phone.png'); background-size: 100% 100%;" placeholder="Phone"/>
+                    
+                    <input type = "email" name = "email" id="appwallRegEmail" style="text-shadow:none; background-image:url('img/txt_mail.png'); background-size: 100% 100%;" placeholder="Email"/>
+                    
+                    <a data-role="button" id="appwallregbtn" onclick="reg();" style="text-shadow:none;">REGISTER</a>
+                    
+                    
+                    
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        
+        <div data-role="page" id="ElementAppwall" data-theme="a">
+            
+            <div data-role="header-fixed" class="hd" style="position:fixed; width:100%; z-index:9999">
+                <h4><span id="">AppWall</span></h4>
+                <a id="" onclick="elementAppwallBack();" class="ui-btn-left" style="margin-top:2%"><img src='img/btn_back.png' style="height: 30px; width: 50px;"/></a>
+            </div>
+            <br>
+            <br>
+            
+            
+            <div data-role="content">
+                <div class="ui-grid-a" style="width:100%;" id="entercmt1">
+                    <div class="ui-block-a" style="width:75%; margin-left:5%;">
+                        <input id="Elementpostmessage" type="text" data-mini="true" data-inline="true" placeholder="Enter Your Comments...." value="" >
+                            </div>
+                    <div class="ui-block-b" style="width:20%;">
+                        <button id="textPostMgs" class="textPostMgs" onclick="javascript:ElementpostmessageFun();" data-mini="true" data-inline="true"><font color="black" >Post</font></button>
+                    </div>
+                </div>
+                <div id="requestcmt1">
+                    <button onclick="login();">Click here to comment</button>
+                </div>
+                <div id="ElementappwallListview" align="center">
+                </div>
+            </div>
+            
+            
+            
+            <div data-role="popup" id="ElementappwallLoginPage" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%;">
+                <div data-role="header" data-theme="e" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3><font size="2" class="Elementappwalllogtitle" style="top:5%; white-space:normal; word-wrap:break-word;"></font></h3>
+                </div>
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                <div data-role="content">
+                    <h3 align="center" style="color:white">LOGIN</h3>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:50%;">
+                            <a data-role="button" id="" onclick="fblogin(2);" style="text-shadow:none;"><img src="img/fb.png" style="width:15px; height:15px"/>  <font size="1">FACEBOOK</font></a>
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:50%;">
+                            <a data-role="button" onclick="javascript:twitterlogin(2)" style="text-shadow:none;"><img src="img/twitter.png" style="width:15px; height:15px" /><font size="1"> TWITTER</font></a>
+                        </div>
+                    </div>
+                    <input type = "text" name = "login" id="ElementappwallLogin" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password" name = "password" id="ElementappwallPassword" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <a data-role="button" id="appwallloginbtn" onclick="javascript:ElementappwallLoginFun();" style="text-shadow:none;">LOGIN</a>
+                    
+                    <img src="img/register.png" width="100%"/>
+                    
+                    
+                    <a data-role="button" id="appwallregisterbtn" onclick="javascript:appwallRegFun(2);" style="text-shadow:none;">REGISTER</a>
+                    
+                </div>
+            </div>
+            
+            <div data-role="popup" id="ElementappwallRegisterPage" class="ui-corner-all" style="background-color:#969696; background-size: 100% 100%;">
+                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"  style="">Close</a>
+                
+                <div data-role="header" data-theme="e" style="text-align:center; white-space:normal; word-wrap:nowrap;">
+                    <h3><font size="2" class="Elementappwalllogtitle" style="top:5%; white-space:normal; word-wrap:break-word;"></font></h3>
+                </div>
+                <div data-role="content">
+                    <h3 align="center" style="color:white">REGISTER</h3>
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" align="left" style="width:45%; margin-right:5%;">
+                            <input type = "text" id="appwallRegFnam1" style="text-shadow:none;" placeholder="First Name" />
+                        </div>
+                        <div class="ui-block-b" align="right" style="width:45%; margin-left:5%;">
+                            <input type = "text" id="appwallRegLnam1" style="text-shadow:none;" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    
+                    <input type = "text"  id="appwallRegid1" style="text-shadow:none; background-image:url('img/txt_user.png'); background-size: 100% 100%;" placeholder="Login Id" />
+                    
+                    <input type = "password"  id="appwallRegPassword1" style="text-shadow:none; background-image:url('img/txt_pass.png'); background-size: 100% 100%;" placeholder="Password"/>
+                    
+                    <input type = "number" id="appwallRegPhone1" style="text-shadow:none; background-image:url('img/txt_phone.png'); background-size: 100% 100%;" placeholder="Phone"/>
+                    
+                    <input type = "email"  id="appwallRegEmail1" style="text-shadow:none; background-image:url('img/txt_mail.png'); background-size: 100% 100%;" placeholder="Email"/>
+                    
+                    <a data-role="button" id="appwallregbtn1" onclick="javascript:regesiterPageFtn(2);" style="text-shadow:none;">REGISTER</a>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="themes/jquery-1.10.2.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jsOAuth-1.3.6.js"></script>
+        <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+        <script src="js/cdv-plugin-fb-connect.js"></script>
+        <script src="js/facebook-js-sdk.js"></script>
+        
+        <script>
+            $(document).bind("mobileinit", function(){
+                             $.mobile.defaultDialogTransition = "none";
+                             $.mobile.defaultPageTransition = "none";
+                             $.mobile.ajaxEnabled =false;
+                             });
+            </script>
+        
+        <script src="themes/jquery.mobile-1.4.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/activity-indicator.js"></script>
+        <script type="text/javascript" src="js/EmailComposer.js"></script>
+        <script type="text/javascript" src="js/CDVVideo.js"></script>
+        <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+        <link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+            <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+            <script type="text/javascript">            
+                var geocoder;
+                var map;
+                function initialize() {
+                    geocoder = new google.maps.Geocoder();
+                    var latlng = new google.maps.LatLng(-34.397, 150.644);
+                    var mapOptions = {
+                        zoom: 8,
+                        center: latlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+                    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);            
+                </script>   
+            </body>
+</html>

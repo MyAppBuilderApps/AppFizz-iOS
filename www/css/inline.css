@@ -1,0 +1,9 @@
+label.error {
+    float: none;
+    color: red;
+    font-size:70%;
+    padding-left: .5em;
+    vertical-align: top;
+    display: block;
+}
+
